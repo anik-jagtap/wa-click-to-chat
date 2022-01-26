@@ -1,0 +1,25 @@
+.header-main {
+    height: 12%;
+    background-color: #138c7e;
+}
+.header-wrap {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+.brand-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.wa-logo {
+    height: 50px;
+    width: 50px;
+}
+.wa-brand-name {
+    color: #fff;
+    font-weight: 900;
+    font-size: 24px;
+    display: block;
+    margin-left: 3px;
+}
