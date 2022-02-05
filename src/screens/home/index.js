@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import AppLayout from "../../layouts/AppLayout";
 
+import "./style.css";
+
 const HomeScreen = () => {
     const [ number, setNumber ] = useState();
     const [ text, setText ] = useState();
@@ -15,20 +17,37 @@ const HomeScreen = () => {
     }
 
     const onSendClicked = () => {
-        console.log(number, text);
-        const url = `https://api.whatsapp.com/send?phone=91${number}&text=${text}`;
-        // window.location.href = `https://api.whatsapp.com/send?phone=91${number}&text=${text}`;
-        window.open(url, '_blank')
+        console.log("here", number, text);
+        // if(text && text.length === 10) {
+            const url = `https://api.whatsapp.com/send?phone=91${number}&text=${text}`;
+            // window.location.href = `https://api.whatsapp.com/send?phone=91${number}&text=${text}`;
+            window.open(url, '_blank')
+        // } else {
+            // if(!text) {
+            //     alert("Please enter number!")
+            // } else {
+            //     alert("Please enter a valid number!")
+            // }
+        // }
     }
 
     return (
         <AppLayout>
-            <div>
-                <input type={'text'} placeholder={'Phone Number'} onChange={onNumberChanged} />
+            <div className={"home-container"}>
+                <div className={"informative"}>
+                    {
+                        "Note: Please enter a valid number and some optional text to begin..."
+                    }
+                </div>
+                {/* <div> */}
+                    <input className={"ph-text"} type={'text'} placeholder={'Phone Number'} onChange={onNumberChanged} />
+                {/* </div> */}
                 <br />
-                <input type={'text'} placeholder={'Optional text'} onChange={onTextChanged} />
+                {/* <div> */}
+                    <input className={"msg-text"} type={'text'} placeholder={'Optional text'} onChange={onTextChanged} />
+                {/* </div> */}
                 <br />
-                <button onClick={onSendClicked} >{'Send'}</button>
+                <div className={"submit-btn"} onClick={onSendClicked} >{'Send'}</div>
             </div>
         </AppLayout>
     )
